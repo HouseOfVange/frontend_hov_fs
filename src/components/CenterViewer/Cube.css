@@ -1,0 +1,12 @@
+.cube{
+    display: inline-block;
+    width: 15px;  /* Set both width and height equal */
+    height: 15px;
+    background-color: beige;
+    border: 1px solid black;
+    text-align: center;
+    vertical-align: bottom;
+    font-weight: bold;
+    line-height: 15px;  /* Align $ symbol vertically */
+    margin-right: 1px;
+}

@@ -1,0 +1,122 @@
+/* .App {
+  text-align: center;
+} */
+
+/* .App-logo {
+  height: 40vmin;
+  pointer-events: none;
+} */
+
+
+header {
+  background-color: rgb(220, 215, 215);
+  min-height: 70px;
+    display: flex; /* Enables Flexbox layout */
+    align-items: center; /* Align items vertically */
+    justify-content: center; /* Center items horizontally */
+    position: relative; /* Allows absolute positioning of the AudioPlayer */
+}
+
+
+.header h1 {
+  color: aliceblue;
+  text-align: center;
+  margin: 0; /* Removes default margin */
+  font-size: 24px; /* Adjust font size as needed */
+  text-align: center;
+}
+
+.audiobutton {
+  position: absolute; /* Position AudioPlayer independently */
+  left: 0; /* Align it to the far left */
+}
+
+footer {
+  color: peru;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(230, 225, 225);
+  color: white;
+  text-align: center;
+}
+
+a {
+  color: white;
+}
+
+.grid-layout-container {
+  min-height: 80vh;
+  max-height: 90vh;
+  padding: 10px;
+  display: grid;
+  grid-template: .25fr 1fr .25fr / .3fr 2fr .5fr;
+  row-gap: 20px;
+  column-gap: 25px;
+  justify-items: stretch;
+}
+
+.grid-block {
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #E5E8E4;
+  box-shadow: -10px 10px #22332C;
+}
+
+.site-title-block {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  padding: 0px 0px 20px 20px;
+  max-height: 15vh;
+  background-position: top -160px left -300px;
+}
+
+.price-list {
+  background-color: pink;
+  grid-column: 1/2;
+  grid-row: 1/3;
+  overflow-y: scroll;
+}
+
+.main-viewer {
+  background-color: darkgoldenrod;
+  grid-column: 2/3;
+  grid-row: 1/3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow: auto;
+}
+
+.ionic-pedestal {
+  background-color: rgb(141, 212, 141);
+  grid-column: 3/4;
+  grid-row: 1/3;
+}
+
+.orderform {
+  width: 100%;
+  height: 100%;
+  max-width: 640px;
+  text-align: center;
+  max-height: calc(100vh - 40px); /* Ensure it doesn't exceed viewport height */
+}
+
+.orderform iframe {
+  width: 100%;
+  height: 100%; /* Adjust to fill the container */
+  border: none;
+}
+
+/* Media query to handle different screen sizes */
+@media (max-width: 768px) {
+  .orderform {
+    max-height: calc(100vh - 60px);
+  }
+
+  .orderform iframe {
+    height: calc(100vh - 60px);
+  }
+}

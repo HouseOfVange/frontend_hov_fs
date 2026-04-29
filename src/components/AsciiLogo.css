@@ -1,0 +1,19 @@
+/* pre {
+    color:darkblue;
+}
+
+pre-wrap {
+    color: pink;
+} */
+
+.asciilogo {
+    color:darkorange;
+    font-family: monospace;
+    white-space: pre;
+    font-size: x-small;
+}
+
+/* .ascii-art {
+    font-family: monospace;
+    white-space: pre;
+} */

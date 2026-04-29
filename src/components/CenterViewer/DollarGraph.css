@@ -1,0 +1,26 @@
+.cube-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align rows to the right */
+    width: fit-content; /* Container only takes necessary space */
+    max-width: 0%; /* Prevents it from overflowing */
+    overflow-x: auto; /* Allows scrolling if needed */
+}
+
+.cube-row {
+    display: flex;
+    justify-content: flex-end; /* Right-align the cubes */
+    flex-wrap: nowrap; /* Prevent wrapping */
+}
+
+.cube {
+    width: 25px;  /* Fixed cube size */
+    height: 25px;
+    background-color: beige;
+    border: 2px solid black;
+    text-align: center;
+    font-weight: bold;
+    line-height: 25px;
+    margin-right: 2px;
+    box-sizing: border-box;
+}

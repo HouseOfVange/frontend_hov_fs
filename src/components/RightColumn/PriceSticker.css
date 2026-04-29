@@ -1,0 +1,84 @@
+
+.corner_sticker {
+    position: fixed;
+    width: 200px;
+    top: 0;
+    right: 0;
+}
+.center {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: 54px;
+    z-index: 1;
+    color: black;
+}
+
+svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+}
+
+polygon:hover {
+    cursor: pointer;
+}
+
+
+.largerstar {
+    fill: pink;
+}
+
+.largerstar:hover{
+    fill: greenyellow;
+}
+
+.smallerstar {
+    fill: yellow;
+}
+
+.smallerstar:hover {
+    fill: orange;
+}
+
+p:hover {
+    color: blueviolet;
+    cursor: pointer;
+}
+
+button {
+    background: transparent;
+    border: none !important;
+}
+
+.archedText:hover {
+    /* pointer-events: none; */
+    cursor: pointer;
+}
+
+.svg-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Ensures the elements are aligned at the top */
+}
+
+.arch {
+    font-size: 14px;
+}
+
+.tinytext {
+    font-size: xx-small; /* Adjust font size if needed */
+}
+
+/* .corner_sticker .stars {
+    pointer-events: visible;
+} */
+
+/* .stars {
+    opacity: .7;
+} */
+
+/* https://www.w3schools.com/css/tryit.asp?filename=trycss3_animation1 */
+/* https://www.w3schools.com/css/tryit.asp?filename=trycss3_animation_count2 */

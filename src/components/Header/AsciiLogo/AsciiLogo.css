@@ -1,0 +1,12 @@
+.asciilogo {
+    width: 100%;
+    overflow-x: auto;
+    white-space: pre;
+}
+
+.asciilogo pre {
+    color: wheat;
+    font-size: clamp(2px, .8vw, 14px);
+    line-height: 1;
+    margin: 0;
+}

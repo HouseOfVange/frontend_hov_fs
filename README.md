@@ -1,3 +1,30 @@
+# House of Vange dot com : Front-end Layer
+
+This is the front end for the future houseofvange.com, built with React.
+
+## One-Time Setup
+- Install Homebrew (https://brew.sh/). `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+- Install Node.js. `brew install node`
+- Install dependencies. Run `npm install`
+- Create a `.env` file based on `env.axample` in the project root. Run `cp .env.example .env`
+
+## Local Run
+To run this frontend locally (after one-time setup) follow these steps:
+1. Make sure the back end is running (see back-end-hov_fs README)
+2. Start the app
+`npm run start`
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

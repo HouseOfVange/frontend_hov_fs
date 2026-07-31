@@ -6,7 +6,7 @@ This is the front end for the future houseofvange.com, built with React.
 - Install Homebrew (https://brew.sh/). `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 - Install Node.js. `brew install node`
 - Install dependencies. `npm install`
-- Create a `.env` file based on `env.axample` in the project root. `cp .env.example .env`
+- Create a `.env` file based on `env.example` in the project root. `cp .env.example .env`
 
 ## Local Run
 To run this frontend locally (after one-time setup) follow these steps:

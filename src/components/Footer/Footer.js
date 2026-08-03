@@ -3,11 +3,11 @@ import SocialMedias from "components/Footer/SocialMedias";
 import 'components/Footer/Footer.css';
 
 
-const Footer = (props) => {
+const Footer = (showGuestBook) => {
 
     return (
         <footer>
-            <SocialMedias />
+            <SocialMedias showGuestBook/>
         </footer>
     );
 };

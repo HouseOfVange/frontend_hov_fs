@@ -13,44 +13,40 @@ const PriceSticker = (props) => {
     }
 
     return (
-            <section 
-                className="corner_sticker" 
-                onClick={handleClick}
+    <section 
+        className="corner_sticker"
+        onClick={handleClick}
+    >
+        <svg className="stars"
+            id="svgelem" 
+            width="200" 
+            height="200" 
+        >
+            <polygon 
+                className="largerstar"
+                points="100,10 40,180 190,60 10,60 160,180" 
+            />
+            <polygon 
+                className="smallerstar"
+                points="100,25 45,170 170,65 25,65 150,160" 
+            />
+            <svg 
+                className="archedText"  
+                width="190" 
+                height="160"
             >
-                {/* <p className="center"> ${props.stickerPrice} </p> */}
-                <p className="center">
-                {/* <span className="tinytext">next available price point is</span>
-                <br /> */}
+            </svg>
+            <text
+                x="100"
+                y="105"
+                textAnchor="middle"
+                fontSize="35"
+                fill="black"
+            >
                 ${props.stickerPrice}
-                </p>
-                <svg className="stars"
-                    id = "svgelem" 
-                    width = "200" 
-                    height = "200" 
-                >
-                    <polygon 
-                        className="largerstar"
-                        points="100,10 40,180 190,60 10,60 160,180" 
-                    />
-                    <polygon 
-                        className="smallerstar"
-                        points="100,25 45,170 170,65 25,65 150,160" 
-                    />
-                    <svg 
-                        className="archedText"  
-                        width="190" 
-                        height="160"
-                    >
-                        <path id='curve' 
-                        d="M 10 80 Q 95 10 180 80"
-                        fill="transparent"/>
-                        <text className='arch'>
-                        <textPath href='#curve'>the time to buy is now 📈</textPath>
-                        </text>
-                    </svg>
-                </svg>
-                {/* </button> */}
-            </section>
+            </text>
+        </svg>
+    </section>
     );
 };
 

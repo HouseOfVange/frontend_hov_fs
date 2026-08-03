@@ -33,6 +33,7 @@ polygon:hover {
 
 .largerstar:hover{
     fill: greenyellow;
+    cursor: pointer;
 }
 
 .smallerstar {
@@ -41,20 +42,11 @@ polygon:hover {
 
 .smallerstar:hover {
     fill: orange;
-}
-
-p:hover {
-    color: blueviolet;
     cursor: pointer;
 }
 
-button {
-    background: transparent;
-    border: none !important;
-}
-
-.archedText:hover {
-    /* pointer-events: none; */
+p:hover {
+    fill: blueviolet;
     cursor: pointer;
 }
 
@@ -72,13 +64,6 @@ button {
     font-size: xx-small; /* Adjust font size if needed */
 }
 
-/* .corner_sticker .stars {
-    pointer-events: visible;
-} */
-
-/* .stars {
-    opacity: .7;
-} */
-
-/* https://www.w3schools.com/css/tryit.asp?filename=trycss3_animation1 */
-/* https://www.w3schools.com/css/tryit.asp?filename=trycss3_animation_count2 */
+.text:hover {
+    cursor: pointer;
+}

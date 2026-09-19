@@ -3,13 +3,11 @@ import './PriceSticker.css'
 
 const PriceSticker = (props) => {
 
-    function showAnAlert() {
-        alert('yas buy me!')
-    }
-
     const handleClick = () => {
+        alert(`you've made a wonderful decision`)
+        props.setShowGuestbook(false)
+        props.setShowGallery(false)
         props.setShowOrderForm(true)
-        showAnAlert()
     }
 
     return (

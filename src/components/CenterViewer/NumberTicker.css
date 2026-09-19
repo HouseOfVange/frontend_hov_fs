@@ -1,0 +1,18 @@
+/* .marquee-container {
+    display: flex;
+    align-items: center;
+} */
+
+.marquee-wrapper {
+    flex: 1;
+}
+
+.marquee-container a {
+    text-decoration: none;
+    color: black
+}
+
+.marquee-container a:hover {
+    color: blue;
+    cursor: pointer;
+}

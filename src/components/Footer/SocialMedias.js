@@ -1,16 +1,25 @@
 import React from "react";
 import './SocialMedias.css'
 
-const SocialMedias = (showGuestBook) => {
+const SocialMedias = (props) => {
+
+    const handleClick = () => {
+        props.setShowGuestbook(true)
+        props.setShowGallery(false)
+        props.setShowOrderForm(false)
+    }
 
     return (
         <section>
             <ul>
-                {showGuestBook && <li>thanks for stopping by!</li> || 
-                <>
-                <li>sign the </li>
-                <li><a href="" target='blank'>guestbook</a></li>
-                </>}
+                {props.showGuestbook ? 
+                    <li>thanks for stopping by!</li> 
+                    : 
+                    <>
+                        <li>sign the </li>
+                        <li><a href="#" onClick={(e) => { e.preventDefault(); handleClick(); }}>guestbook</a></li>
+                    </>
+                }
             </ul>
             <ul>
                 <li><a href="https://www.instagram.com/houseofvange/" target="blank">grum</a> </li>

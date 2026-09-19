@@ -1,10 +1,10 @@
 import React from "react";
-import './OrderForm.css';
+import 'components/CenterViewer/OrderForm';
 
 const OrderForm = (props) => {
     return (
         <section className="orderform">
-            <heading>{"$" + props.stickerPrice}</heading>
+            <header>{"$" + props.stickerPrice}</header>
             <iframe
                 title="HOV order form"
                 src="https://docs.google.com/forms/d/e/1FAIpQLScyg8SQhbtmTDekvr4Q6vnO9IT9DQvBfaswy9IAcpZapin_-A/viewform?embedded=true" 

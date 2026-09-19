@@ -8,8 +8,9 @@ const Guestbook = (props) => {
         <section className="guestbook">
             This is the guestbook
 
-            <GuestbookEntryForm postGuestbookEntry={props.postGuestbookEntry}/>
+            <GuestbookEntryForm postGuestbookEntry={props.postGuestbookEntry} className="guestbook-form"/>
 
+            <section className="guestbook-entries">
             {[...props.guestbookEntries].sort((a, b) => new Date(b.created_at) - new Date(a.created_at)).map((entry) => (
                 <GuestbookEntry 
                     key={entry.id}
@@ -21,6 +22,7 @@ const Guestbook = (props) => {
                     addLike={props.addLike}
                 />
             ))}
+            </section>
         </section>
     );
 };

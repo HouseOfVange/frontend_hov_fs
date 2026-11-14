@@ -114,11 +114,23 @@ function App2() {
   }
 
   // HANDLE HASHES HANDLE HASHES HANDLE HASHES HANDLE HASHES HANDLE HASHES HANDLE HASHES
-  useEffect(() => {
-  const hash = window.location.hash.replace("#", "");
-  if (hash === "gallery") setShowGallery(true);
-  if (hash === "order-form") setShowOrderForm(true);
-  if (hash === "guestbook") setShowGuestbook(true);
+useEffect(() => {
+  const syncViewWithHash = () => {
+    const hash = window.location.hash.slice(1);
+
+    setShowGallery(hash === "gallery");
+    setShowOrderForm(hash === "order-form");
+    setShowGuestbook(
+      hash === "guestbook" || hash.startsWith("guestbook-entry-")
+    );
+  };
+
+  syncViewWithHash(); // Apply the current hash on initial load
+  window.addEventListener("hashchange", syncViewWithHash);
+
+  return () => {
+    window.removeEventListener("hashchange", syncViewWithHash);
+  };
 }, []);
 
   return (

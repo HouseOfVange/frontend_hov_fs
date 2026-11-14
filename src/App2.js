@@ -102,6 +102,13 @@ function App2() {
       .catch((err) => console.log(err));
   }, []);
 
+  useEffect(() => {
+  const hash = window.location.hash.replace("#", "");
+  if (hash === "gallery") setShowGallery(true);
+  if (hash === "order-form") setShowOrderForm(true);
+  if (hash === "guestbook") setShowGuestbook(true);
+}, []);
+
   return (
     <div className="App2">
       <NumberTicker stickerPrice={stickerPrice} setSelectedPiece={setSelectedPiece}/>
@@ -117,9 +124,9 @@ function App2() {
           {!showGallery && !showOrderForm && !showGuestbook ? (
             <img src={"https://cdn.voyagela.com/wp-content/uploads/2020/06/personal_photo-129-1000x600.jpg" } />
           ) : null}
-          {showGallery && <Gallery galleryPieces={galleryPieces} selectedPiece={selectedPiece}/>}
-          {showOrderForm && <OrderForm stickerPrice={stickerPrice}/>}
-          {showGuestbook && <Guestbook guestbookEntries={guestbookEntries} postGuestbookEntry={postGuestbookEntry} addLike={addLike}/>}
+          {showGallery && <section id="gallery"><Gallery galleryPieces={galleryPieces} selectedPiece={selectedPiece}/></section>}
+          {showOrderForm && <section id="order-form"> <OrderForm stickerPrice={stickerPrice}/> </section>}
+          {showGuestbook && <section id="guestbook"><Guestbook guestbookEntries={guestbookEntries} postGuestbookEntry={postGuestbookEntry} addLike={addLike}/> </section>}
       </main>
       <Footer showGuestbook={showGuestbook} setShowGuestbook={setShowGuestbook} setShowGallery={setShowGallery} setShowOrderForm={setShowOrderForm} />
     </div>

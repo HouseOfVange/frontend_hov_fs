@@ -102,6 +102,18 @@ function App2() {
       .catch((err) => console.log(err));
   }, []);
 
+// ORDER FORM ORDER FORM ORDER FORM ORDER FORM ORDER FORM ORDER FORM ORDER FORM
+// POST a new order
+  const postOrder = (name, contact, the_time_to_buy_is_now, desire, understand_that_hov_cost_money) => {
+    return axios
+      .post(`${hov_app_backend_URL}/order/`, { name, contact, the_time_to_buy_is_now, desire, understand_that_hov_cost_money})
+      .then((response) => {
+        console.log("a new order was posted.");
+      })
+      .catch((err) => console.log(err));
+  }
+
+  // HANDLE HASHES HANDLE HASHES HANDLE HASHES HANDLE HASHES HANDLE HASHES HANDLE HASHES
   useEffect(() => {
   const hash = window.location.hash.replace("#", "");
   if (hash === "gallery") setShowGallery(true);
@@ -111,24 +123,35 @@ function App2() {
 
   return (
     <div className="App2">
+      
       <NumberTicker stickerPrice={stickerPrice} setSelectedPiece={setSelectedPiece}/>
       {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
+      
       <Header />
+      
       <PriceSticker
           setShowGuestbook={setShowGuestbook}
           setShowOrderForm={setShowOrderForm}
           setShowGallery={setShowGallery}
           stickerPrice={stickerPrice} 
       />
+
       <main className="main-content">
+
           {!showGallery && !showOrderForm && !showGuestbook ? (
             <img src={"https://cdn.voyagela.com/wp-content/uploads/2020/06/personal_photo-129-1000x600.jpg" } />
           ) : null}
+          
           {showGallery && <section id="gallery"><Gallery galleryPieces={galleryPieces} selectedPiece={selectedPiece}/></section>}
-          {showOrderForm && <section id="order-form"> <OrderForm stickerPrice={stickerPrice}/> </section>}
-          {showGuestbook && <section id="guestbook"><Guestbook guestbookEntries={guestbookEntries} postGuestbookEntry={postGuestbookEntry} addLike={addLike}/> </section>}
+          
+          {showOrderForm && <section id="order-form"> <OrderForm stickerPrice={stickerPrice} postOrder={postOrder}/></section>}
+          
+          {showGuestbook && <section id="guestbook"><Guestbook guestbookEntries={guestbookEntries} postGuestbookEntry={postGuestbookEntry} addLike={addLike}/></section>}
+
       </main>
+
       <Footer showGuestbook={showGuestbook} setShowGuestbook={setShowGuestbook} setShowGallery={setShowGallery} setShowOrderForm={setShowOrderForm} />
+    
     </div>
   );
 }

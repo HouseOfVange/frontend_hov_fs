@@ -38,6 +38,7 @@ const OrderForm = (props) => {
                         required
                     />
                 </div>
+
                 <div>
                     <label htmlFor="contact">What is the best way to contact you?</label>
                     <input
@@ -52,28 +53,29 @@ const OrderForm = (props) => {
 
                 <fieldset>
                     <legend>True or false, "The time to buy is now!"?</legend>
-                <div>
-                    <input 
-                    type="radio"
-                    id="ttbin-true" 
-                    name="ttbin" 
-                    value="true"
-                    required
-                    onChange={(e) => setThe_time_to_buy_is_now(true)}
-                    />
-                    <label htmlFor="ttbin-true">True</label>
-                </div>
-                <div>
-                    <input 
-                    type="radio" 
-                    id="ttbin-false"
-                    name="ttbin"
-                    value="false" 
-                    required
-                    onChange={(e) => setThe_time_to_buy_is_now(false)}
-                    />
-                    <label htmlFor="ttbin-false">False</label>
-                </div>
+                        <div>
+                            <input 
+                            type="radio"
+                            id="ttbin-true" 
+                            name="ttbin" 
+                            value="true"
+                            required
+                            onChange={(e) => setThe_time_to_buy_is_now(true)}
+                            />
+                            <label htmlFor="ttbin-true">True</label>
+                        </div>
+                        
+                        <div>
+                            <input 
+                            type="radio" 
+                            id="ttbin-false"
+                            name="ttbin"
+                            value="false" 
+                            required
+                            onChange={(e) => setThe_time_to_buy_is_now(false)}
+                            />
+                            <label htmlFor="ttbin-false">False</label>
+                        </div>
                 </fieldset>
 
 

@@ -27,6 +27,7 @@ const SocialMedias = (props) => {
                 <li><a href="https://bsky.app/profile/houseofvange.bsky.social" target="blank">bluhski</a> </li>
                 <li><a href="https://www.youtube.com/@houseofvange" target="blank">toob</a> </li>
                 <li><a href="https://www.tiktok.com/@houseofvange" target="blank">tickle</a> </li>
+                <li><a href="https://github.com/HouseOfVange" target="blank">gidub</a> </li>
             </ul>
         </section>
     );

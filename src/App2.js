@@ -154,7 +154,7 @@ useEffect(() => {
             <img src={"https://cdn.voyagela.com/wp-content/uploads/2020/06/personal_photo-129-1000x600.jpg" } />
           ) : null}
           
-          {showGallery && <section id="gallery"><Gallery galleryPieces={galleryPieces} selectedPiece={selectedPiece}/></section>}
+          {showGallery && <section id="gallery"><Gallery galleryPieces={galleryPieces} selectedPiece={selectedPiece} setSelectedPiece={setSelectedPiece}/></section>}
           
           {showOrderForm && <section id="order-form"> <OrderForm stickerPrice={stickerPrice} postOrder={postOrder}/></section>}
           

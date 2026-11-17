@@ -11,7 +11,7 @@ const Header = (props) => {
             <h2>The time to buy is now!</h2>
             <ul>
                 <li onClick={() => window.location.hash = "#"}>HOME</li> 
-                <li onClick={() => window.location.hash = "#"}>ABOUT</li>
+                <li onClick={() => window.location.hash = "#about"}>ABOUT</li>
                 <li onClick={() => window.location.hash = "#order-form"}>ORDER</li>
                 <li onClick={() => window.location.hash = "#gallery"}>GALLERY</li>
                 <li onClick={() => window.location.hash = "#guestbook"}>GUESTBOOK</li>

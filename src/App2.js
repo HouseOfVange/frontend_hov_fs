@@ -10,6 +10,7 @@ import Guestbook from 'components/CenterViewer/Guestbook';
 import OrderForm from 'components/CenterViewer/OrderForm';
 import Gallery from 'components/CenterViewer/Gallery';
 import NumberTicker from 'components/CenterViewer/NumberTicker';
+import About from 'components/CenterViewer/About';
 
 function App2() {
 
@@ -21,13 +22,14 @@ function App2() {
 
   // SET STATES
   const [stickerPrice, setStickerPrice] = useState();
-  const [showOrderForm, setShowOrderForm] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [showGuestbook, setShowGuestbook] = useState(false);
-  const [guestbookEntries, setGuestbookEntries] = useState([]);
+  const [showAbout, setShowAbout] = useState(false);
+  const [showOrderForm, setShowOrderForm] = useState(false);
   const [showGallery, setShowGallery] = useState(false);
   const [galleryPieces, setGalleryPieces] = useState([]);
   const [selectedPiece, setSelectedPiece] = useState(null);
+  const [showGuestbook, setShowGuestbook] = useState(false);
+  const [guestbookEntries, setGuestbookEntries] = useState([]);
 
   useEffect(() => {
     if (selectedPiece !== null) {
@@ -129,7 +131,7 @@ function App2() {
 useEffect(() => {
   const syncViewWithHash = () => {
     const hash = window.location.hash.slice(1);
-
+    setShowAbout(hash === "about");
     setShowGallery(hash === "gallery");
     setShowOrderForm(hash === "order-form");
     setShowGuestbook(
@@ -163,7 +165,13 @@ useEffect(() => {
       <main className="main-content">
 
           {!showGallery && !showOrderForm && !showGuestbook ? (
-            <img src={"https://cdn.voyagela.com/wp-content/uploads/2020/06/personal_photo-129-1000x600.jpg" } />
+            <section className="talk-to-the-hand-pic">
+              {showAbout &&
+                <section id="about" className="about">
+                  <About />
+                </section>}
+              <img src={"https://cdn.voyagela.com/wp-content/uploads/2020/06/personal_photo-129-1000x600.jpg" } />
+            </section>
           ) : null}
           {showGallery && <section id="gallery">
             <Gallery 

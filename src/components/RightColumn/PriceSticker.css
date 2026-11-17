@@ -4,6 +4,7 @@
     width: 200px;
     top: 0;
     right: 0;
+    z-index: 100;
 }
 .center {
     position: absolute;
@@ -45,7 +46,7 @@ polygon:hover {
     cursor: pointer;
 }
 
-p:hover {
+.corner_sticker p:hover {
     fill: blueviolet;
     cursor: pointer;
 }

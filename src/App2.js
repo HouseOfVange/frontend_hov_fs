@@ -102,6 +102,18 @@ function App2() {
       .catch((err) => console.log(err));
   }, []);
 
+// COMMENT COMMENT COMMENT COMMENT COMMENT COMMENT COMMENT COMMENT COMMENT COMMENT COMMENT
+// GET all comments for a piece
+  const getCommentsForPiece = (pieceId) => {
+    return axios
+      .get(`${hov_app_backend_URL}/pieces/${pieceId}/comments`)
+      .then((response) => {
+        console.log(`comments for piece ${pieceId} retrieved.`);
+        return response.data;
+      })
+      .catch((err) => console.log(err));
+  };
+
 // ORDER FORM ORDER FORM ORDER FORM ORDER FORM ORDER FORM ORDER FORM ORDER FORM
 // POST a new order
   const postOrder = (name, contact, the_time_to_buy_is_now, desire, understand_that_hov_cost_money) => {
@@ -153,12 +165,27 @@ useEffect(() => {
           {!showGallery && !showOrderForm && !showGuestbook ? (
             <img src={"https://cdn.voyagela.com/wp-content/uploads/2020/06/personal_photo-129-1000x600.jpg" } />
           ) : null}
-          
-          {showGallery && <section id="gallery"><Gallery galleryPieces={galleryPieces} selectedPiece={selectedPiece} setSelectedPiece={setSelectedPiece}/></section>}
-          
-          {showOrderForm && <section id="order-form"> <OrderForm stickerPrice={stickerPrice} postOrder={postOrder}/></section>}
-          
-          {showGuestbook && <section id="guestbook"><Guestbook guestbookEntries={guestbookEntries} postGuestbookEntry={postGuestbookEntry} addLike={addLike}/></section>}
+          {showGallery && <section id="gallery">
+            <Gallery 
+              galleryPieces={galleryPieces} 
+              selectedPiece={selectedPiece}
+              setSelectedPiece={setSelectedPiece}
+              getCommentsForPiece={getCommentsForPiece}
+            />
+          </section>}
+          {showOrderForm && <section id="order-form">
+            <OrderForm 
+              stickerPrice={stickerPrice} 
+              postOrder={postOrder}
+            />
+          </section>}
+          {showGuestbook && <section id="guestbook">
+            <Guestbook 
+              guestbookEntries={guestbookEntries} 
+              postGuestbookEntry={postGuestbookEntry} 
+              addLike={addLike}
+            />
+          </section>}
 
       </main>
 

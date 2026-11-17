@@ -48,6 +48,8 @@ const Gallery = (props) => {
                                     images={entry.images}
                                     is_available={entry.is_available}
                                     addLike={props.addLike}
+                                    getCommentsForPiece={props.getCommentsForPiece}
+                                    setSelectedPiece={props.setSelectedPiece}
                                 />
                             </div>
                         )}

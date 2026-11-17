@@ -1,0 +1,8 @@
+.comment {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    max-width: 50%;
+    border: 3px solid #b597e9;
+    border-radius: 8px;
+}

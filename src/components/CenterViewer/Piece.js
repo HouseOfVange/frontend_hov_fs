@@ -12,6 +12,17 @@ const Piece = (props) => {
         });
     }, [props.id]);
 
+    const handleCommentLike = (piece_id, comment_id) => {
+        props.addCommentLike(piece_id, comment_id).then(() => {
+            setComments((prev) =>
+                prev.map((c) =>
+                    c.id === comment_id
+                        ? { ...c, likes_count: Number(c.likes_count) + 1 }
+                        : c
+                )
+            );
+        });
+    };
 
     const renderImages = () => {
         if (!props.images) return null;
@@ -34,11 +45,13 @@ const Piece = (props) => {
 
         return comments.map((comment) => (
             <Comment 
-                key={comment.id}
+                id={comment.id}
                 author={comment.author}
                 message={comment.message}
                 likes_count={comment.likes_count}
                 created_at={comment.created_at}
+                piece_id={props.id}
+                handleCommentLike={handleCommentLike}
             />
         ));
     }

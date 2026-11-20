@@ -116,6 +116,19 @@ function App2() {
       .catch((err) => console.log(err));
   };
 
+// PATCH add a like to a piece comment
+  const addCommentLike = (piece_id, comment_id) =>{
+    return axios
+      .patch(`${hov_app_backend_URL}/pieces/${piece_id}/comments/${comment_id}`)
+      .then((response) => {
+        console.log("Like added to comment")
+      })
+      .catch((err) => {
+          console.log(err);
+          throw err;
+      });  
+  }
+
 // ORDER FORM ORDER FORM ORDER FORM ORDER FORM ORDER FORM ORDER FORM ORDER FORM
 // POST a new order
   const postOrder = (name, contact, the_time_to_buy_is_now, desire, understand_that_hov_cost_money) => {
@@ -179,6 +192,7 @@ useEffect(() => {
               selectedPiece={selectedPiece}
               setSelectedPiece={setSelectedPiece}
               getCommentsForPiece={getCommentsForPiece}
+              addCommentLike={addCommentLike}
             />
           </section>}
           {showOrderForm && <section id="order-form">

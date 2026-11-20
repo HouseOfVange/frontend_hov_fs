@@ -49,6 +49,7 @@ const Gallery = (props) => {
                                     is_available={entry.is_available}
                                     addLike={props.addLike}
                                     getCommentsForPiece={props.getCommentsForPiece}
+                                    addCommentLike={props.addCommentLike}
                                     setSelectedPiece={props.setSelectedPiece}
                                 />
                             </div>

@@ -9,7 +9,12 @@ const Comment = (props) => {
         <section className="comment" >
             <p>{props.author} ({getRelativeTime(props.created_at)})</p>
             <p>{props.message}</p>
-            <p>👍 {props.likes_count}</p>
+            <p onClick={() => props.handleCommentLike(
+                    props.piece_id,
+                    props.id
+                )}>
+                👍 {props.likes_count}
+            </p>
         </section>
     );
 };

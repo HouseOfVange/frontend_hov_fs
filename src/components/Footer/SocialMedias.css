@@ -1,7 +1,21 @@
-ul {
-    padding-left: 0;
+.socialmedialinks ul li {
+    display:inline;
 }
 
-ul li {
-    display:inline;
+.socialmedialinks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .4rem;
+    max-width: 100%;
+    padding: 0;
+    list-style: none;
+}
+
+.socialmedialinks li:hover {
+    background-color: orange;
+}
+
+.socialmedialinks li {
+    cursor: pointer;
 }

@@ -26,18 +26,28 @@
 
 .talk-to-the-hand-pic {
     position: relative;
+    align-self: center;
+    width: fit-content;
+    max-width: 100%;
+}
+
+.talk-to-the-hand-pic img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
 }
 
 .about {
     position: absolute;
     top: 30%;
-    left: 34%;
+    left: 33.5%;
     transform: translate(-50%, -50%);
     z-index: 10;
     max-width: 90%;
     font-size: 1.2rem;
     text-align: center;
-    background-color: rgba(245, 245, 220, 0.6);
+    background-color: rgba(152, 231, 115, 0.6);
     padding: 8px;
 }
 

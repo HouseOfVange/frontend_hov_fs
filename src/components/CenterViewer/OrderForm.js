@@ -3,25 +3,37 @@ import 'components/CenterViewer/OrderForm';
 
 const OrderForm = (props) => {
 
-    const [name, setName] = useState('');
-    const [contact, setContact] = useState('');
-    const [the_time_to_buy_is_now, setThe_time_to_buy_is_now] = useState();
-    const [desire, setDesire] = useState('');
-    const [understand_that_hov_cost_money, setUnderstand_that_hov_cost_money] = useState();
     const [isSubmitting, setIsSubmitting] = useState(false);
 
+    const clearOrderForm = () => {
+        props.updateOrderFormData('name', '');
+        props.updateOrderFormData('contact', '');
+        props.updateOrderFormData('the_time_to_buy_is_now', null);
+        props.updateOrderFormData('desire', '');
+        props.updateOrderFormData('understand_that_hov_cost_money', null);
+    };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        props.postOrder(name, contact, the_time_to_buy_is_now, desire, understand_that_hov_cost_money);
-        setName('');
-        setContact('');
-        setThe_time_to_buy_is_now();
-        setDesire('');
-        setUnderstand_that_hov_cost_money();
-        setIsSubmitting(false);
-    };    
+        setIsSubmitting(true);
 
+        try {
+            await props.postOrder(
+                props.orderFormData.name, 
+                props.orderFormData.contact, 
+                props.orderFormData.the_time_to_buy_is_now, 
+                props.orderFormData.desire, 
+                props.orderFormData.understand_that_hov_cost_money
+            );
+            props.setShowThankYou(true);
+            console.log('show the thank you component')
+            clearOrderForm();
+        } catch (error) {
+            console.error("Could not submit order:", error);
+        } finally {
+            setIsSubmitting(false);
+        };
+    };
 
     return (
         <section>
@@ -33,8 +45,8 @@ const OrderForm = (props) => {
                     <input
                         type="text"
                         id="name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        value={props.orderFormData.name}
+                        onChange={(e) => props.updateOrderFormData('name', e.target.value)}
                         required
                     />
                 </div>
@@ -44,12 +56,11 @@ const OrderForm = (props) => {
                     <input
                         ype="text"
                         id="contact"
-                        value={contact}
-                        onChange={(e) => setContact(e.target.value)}
+                        value={props.orderFormData.contact}
+                        onChange={(e) => props.updateOrderFormData('contact', e.target.value)}
                         required
                     />
                 </div>
-
 
                 <fieldset>
                     <legend>True or false, "The time to buy is now!"?</legend>
@@ -60,7 +71,8 @@ const OrderForm = (props) => {
                             name="ttbin" 
                             value="true"
                             required
-                            onChange={(e) => setThe_time_to_buy_is_now(true)}
+                            checked={props.orderFormData.the_time_to_buy_is_now === true}
+                            onChange={(e) => props.updateOrderFormData('the_time_to_buy_is_now', true)}
                             />
                             <label htmlFor="ttbin-true">True</label>
                         </div>
@@ -72,14 +84,13 @@ const OrderForm = (props) => {
                             name="ttbin"
                             value="false" 
                             required
-                            onChange={(e) => setThe_time_to_buy_is_now(false)}
+                            checked={props.orderFormData.the_time_to_buy_is_now === false}
+                            onChange={(e) => props.updateOrderFormData('the_time_to_buy_is_now', false)}
                             />
                             <label htmlFor="ttbin-false">False</label>
                         </div>
                 </fieldset>
 
-
-                {/* What do you want from HOV? */}
                 <div>
                     <label htmlFor="desire">
                         What do you want from HOV?
@@ -87,13 +98,12 @@ const OrderForm = (props) => {
                     <input
                         type="text"
                         id="desire"
-                        value={desire}
-                        onChange={(e) => setDesire(e.target.value)}
+                        value={props.orderFormData.desire}
+                        onChange={(e) => props.updateOrderFormData('desire', e.target.value)}
                         required
                     />
                 </div>
                 
-                {/* Do you understand that HOV products cost money? */}
                 <fieldset>
                     <legend>Do you understand that HOV products cost money?</legend>
                         <div>
@@ -101,7 +111,8 @@ const OrderForm = (props) => {
                             type="radio" id="understand_that_hov_cost_money-true" name="understand_that_hov_cost_money" 
                             value="true"
                             required
-                            onChange={(e) => setUnderstand_that_hov_cost_money(true)}/>
+                            checked={props.orderFormData.understand_that_hov_cost_money === true}
+                            onChange={(e) => props.updateOrderFormData('understand_that_hov_cost_money', true)}/>
                             <label htmlFor="understand_that_hov_cost_money-true">Yes</label>
                         </div>
                         <div>
@@ -111,7 +122,8 @@ const OrderForm = (props) => {
                             name="understand_that_hov_cost_money"
                             value="false"
                             required
-                            onChange={(e) => setUnderstand_that_hov_cost_money(false)}
+                            checked={props.orderFormData.understand_that_hov_cost_money === false}
+                            onChange={(e) => props.updateOrderFormData('understand_that_hov_cost_money', false)}
                             />
                             <label htmlFor="understand_that_hov_cost_money-false">No</label>
                         </div>
@@ -125,7 +137,6 @@ const OrderForm = (props) => {
                 </button>
             
             </form>
-
         </section>
     );
 };

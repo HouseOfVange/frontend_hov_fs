@@ -140,6 +140,23 @@ function App2() {
       .catch((err) => console.log(err));
   }
 
+// HANDLE ORDER FORM DATA
+  const [orderFormData, setOrderFormData] = useState({
+        name: '',
+        contact: '',
+        the_time_to_buy_is_now: null,
+        desire: '',
+        understand_that_hov_cost_money: null,
+  });
+
+  const updateOrderFormData = (field, value) => {
+    console.log(field);
+    setOrderFormData((current) => ({
+      ...current,
+      [field]: value,
+    }));
+  };
+
   // HANDLE HASHES HANDLE HASHES HANDLE HASHES HANDLE HASHES HANDLE HASHES HANDLE HASHES
 useEffect(() => {
   const syncViewWithHash = () => {
@@ -199,6 +216,9 @@ useEffect(() => {
             <OrderForm 
               stickerPrice={stickerPrice} 
               postOrder={postOrder}
+              orderFormData={orderFormData}
+              updateOrderFormData={updateOrderFormData}
+              setShowThankYou={setShowThankYou}
             />
           </section>}
           {showGuestbook && <section id="guestbook">

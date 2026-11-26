@@ -25,7 +25,6 @@ const OrderForm = (props) => {
                 props.orderFormData.desire, 
                 props.orderFormData.understand_that_hov_cost_money
             );
-            props.setShowThankYou(true);
             console.log('show the thank you component')
             clearOrderForm();
         } catch (error) {
